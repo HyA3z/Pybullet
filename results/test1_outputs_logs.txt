@@ -1,0 +1,52 @@
+
+----PROMPT for planning----
+[{'role': 'system', 'content': 'You are a senior robot code engineer'}, {'role': 'user', 'content': 'Here i give you some code format examples.'}, {'role': 'user', 'content': 'pick up a block'}, {'role': 'assistant', 'content': "def pick_up_a_block():\n\t# 0: find a block\n\tfind('blue block')\n\t# 1: Pick the block\n\tpick('blue block')\n\t"}, {'role': 'user', 'content': 'put a block in a bowl'}, {'role': 'assistant', 'content': "def put_a_block_in_bowl():\n\t# 0: find a block\n\tfind('blue block')\n\t# 1: Pick the block\n\tpick('blue block')\n\t# 2: find a bowl\n\tfind('pink bowl')\n\t# 3: put the block in the bowl\n\tplace('pink bowl')\n\t"}, {'role': 'system', 'content': 'You can only use these functions: find <obj>, pick <obj>, place <obj>, and the code should not be for/while structure.'}, {'role': 'system', 'content': "You can only replace above <obj> with objects that are :['purple block', 'pink block', 'purple bowl', 'cyan bowl', 'pink bowl']"}]
+
+----Test set tasks----
+Store two blocks in the bowl
+
+--Executing task: Store two blocks in the bowl--
+Plan:  Alright, here is a simple script which finds and picks two blocks and places them in a bowl:
+
+```python
+def store_two_blocks_in_the_bowl():
+    # 0: find a purple block
+    find('purple block')
+    # 1: Pick the purple block
+    pick('purple block')
+    # 2: find a pink bowl
+    find('pink bowl')
+    # 3: Put the purple block in the pink bowl
+    place('pink bowl')
+    # 4: Repeat for the second block
+    find('pink block')
+    pick('pink block')
+    find('pink bowl')
+    place('pink bowl')
+``` 
+
+Each step of the function describes an action that our robot should do. We first find the purple block, then we pick it up. Afterwards, we find the pink bowl and place the purple block in the bowl. We repeat this process for the pink block.
+
+
+Executing action: find purple block
+
+(True, array([ 0.08894957, -0.39933282,  0.02098936], dtype=float32))
+
+
+success
+Executing action: pick purple block
+
+(True, 'The action is legal.')
+
+
+success
+Executing action: find pink bowl
+
+(True, array([-0.10859342, -0.5077172 ,  0.02      ], dtype=float32))
+
+
+success
+Executing action: place pink bowl
+
+(True, 'The action is legal')
+
